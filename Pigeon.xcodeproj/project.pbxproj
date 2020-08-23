@@ -14,6 +14,15 @@
 		FAE0903D24F2E2CA00184B05 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAE0903C24F2E2CA00184B05 /* Preview Assets.xcassets */; };
 		FAE0904024F2E2CA00184B05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAE0903E24F2E2CA00184B05 /* LaunchScreen.storyboard */; };
 		FAE0904B24F2E2CA00184B05 /* PigeonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE0904A24F2E2CA00184B05 /* PigeonTests.swift */; };
+		FAE0905624F2E51800184B05 /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE0905524F2E51800184B05 /* Query.swift */; };
+		FAE0905A24F2F34100184B05 /* QueryCacheType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE0905924F2F34100184B05 /* QueryCacheType.swift */; };
+		FAE0905C24F2F35700184B05 /* InMemoryQueryCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE0905B24F2F35700184B05 /* InMemoryQueryCache.swift */; };
+		FAE0905E24F2F37500184B05 /* UserDefaultsQueryCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE0905D24F2F37500184B05 /* UserDefaultsQueryCache.swift */; };
+		FAE0906024F2F47500184B05 /* QueryState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE0905F24F2F47500184B05 /* QueryState.swift */; };
+		FAE0906224F2F48E00184B05 /* QueryConsumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE0906124F2F48E00184B05 /* QueryConsumer.swift */; };
+		FAE0906524F3118C00184B05 /* QueryCacheListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE0906424F3118C00184B05 /* QueryCacheListener.swift */; };
+		FAE0906724F311A700184B05 /* QueryKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE0906624F311A700184B05 /* QueryKey.swift */; };
+		FAE0906924F3122700184B05 /* Mutation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE0906824F3122700184B05 /* Mutation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +47,15 @@
 		FAE0904624F2E2CA00184B05 /* PigeonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PigeonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAE0904A24F2E2CA00184B05 /* PigeonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PigeonTests.swift; sourceTree = "<group>"; };
 		FAE0904C24F2E2CA00184B05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAE0905524F2E51800184B05 /* Query.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Query.swift; sourceTree = "<group>"; };
+		FAE0905924F2F34100184B05 /* QueryCacheType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryCacheType.swift; sourceTree = "<group>"; };
+		FAE0905B24F2F35700184B05 /* InMemoryQueryCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryQueryCache.swift; sourceTree = "<group>"; };
+		FAE0905D24F2F37500184B05 /* UserDefaultsQueryCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsQueryCache.swift; sourceTree = "<group>"; };
+		FAE0905F24F2F47500184B05 /* QueryState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryState.swift; sourceTree = "<group>"; };
+		FAE0906124F2F48E00184B05 /* QueryConsumer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryConsumer.swift; sourceTree = "<group>"; };
+		FAE0906424F3118C00184B05 /* QueryCacheListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryCacheListener.swift; sourceTree = "<group>"; };
+		FAE0906624F311A700184B05 /* QueryKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryKey.swift; sourceTree = "<group>"; };
+		FAE0906824F3122700184B05 /* Mutation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mutation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +97,7 @@
 		FAE0903224F2E2C900184B05 /* Pigeon */ = {
 			isa = PBXGroup;
 			children = (
+				FAE0905724F2F32800184B05 /* Pigeon */,
 				FAE0903324F2E2C900184B05 /* AppDelegate.swift */,
 				FAE0903524F2E2C900184B05 /* SceneDelegate.swift */,
 				FAE0903724F2E2C900184B05 /* ContentView.swift */,
@@ -105,6 +124,38 @@
 				FAE0904C24F2E2CA00184B05 /* Info.plist */,
 			);
 			path = PigeonTests;
+			sourceTree = "<group>";
+		};
+		FAE0905724F2F32800184B05 /* Pigeon */ = {
+			isa = PBXGroup;
+			children = (
+				FAE0906324F3118100184B05 /* Utils */,
+				FAE0905824F2F33A00184B05 /* Cache */,
+				FAE0905524F2E51800184B05 /* Query.swift */,
+				FAE0906124F2F48E00184B05 /* QueryConsumer.swift */,
+				FAE0906824F3122700184B05 /* Mutation.swift */,
+			);
+			path = Pigeon;
+			sourceTree = "<group>";
+		};
+		FAE0905824F2F33A00184B05 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				FAE0905924F2F34100184B05 /* QueryCacheType.swift */,
+				FAE0905B24F2F35700184B05 /* InMemoryQueryCache.swift */,
+				FAE0905D24F2F37500184B05 /* UserDefaultsQueryCache.swift */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
+		FAE0906324F3118100184B05 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				FAE0906424F3118C00184B05 /* QueryCacheListener.swift */,
+				FAE0906624F311A700184B05 /* QueryKey.swift */,
+				FAE0905F24F2F47500184B05 /* QueryState.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,8 +259,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAE0905A24F2F34100184B05 /* QueryCacheType.swift in Sources */,
+				FAE0906224F2F48E00184B05 /* QueryConsumer.swift in Sources */,
+				FAE0905C24F2F35700184B05 /* InMemoryQueryCache.swift in Sources */,
+				FAE0905E24F2F37500184B05 /* UserDefaultsQueryCache.swift in Sources */,
+				FAE0905624F2E51800184B05 /* Query.swift in Sources */,
+				FAE0906524F3118C00184B05 /* QueryCacheListener.swift in Sources */,
 				FAE0903424F2E2C900184B05 /* AppDelegate.swift in Sources */,
+				FAE0906724F311A700184B05 /* QueryKey.swift in Sources */,
 				FAE0903624F2E2C900184B05 /* SceneDelegate.swift in Sources */,
+				FAE0906024F2F47500184B05 /* QueryState.swift in Sources */,
+				FAE0906924F3122700184B05 /* Mutation.swift in Sources */,
 				FAE0903824F2E2C900184B05 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

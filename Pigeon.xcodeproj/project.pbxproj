@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FA36D0FF24F31497009B4D80 /* QueryInvalidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA36D0FE24F31497009B4D80 /* QueryInvalidator.swift */; };
+		FA36D10124F3270B009B4D80 /* PaginatedQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA36D10024F3270B009B4D80 /* PaginatedQuery.swift */; };
 		FA8E885B24F312FF0054B253 /* QueryInvalidationListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E885A24F312FF0054B253 /* QueryInvalidationListener.swift */; };
 		FAE0903424F2E2C900184B05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE0903324F2E2C900184B05 /* AppDelegate.swift */; };
 		FAE0903624F2E2C900184B05 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE0903524F2E2C900184B05 /* SceneDelegate.swift */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		FA36D0FE24F31497009B4D80 /* QueryInvalidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryInvalidator.swift; sourceTree = "<group>"; };
+		FA36D10024F3270B009B4D80 /* PaginatedQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginatedQuery.swift; sourceTree = "<group>"; };
 		FA8E885A24F312FF0054B253 /* QueryInvalidationListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryInvalidationListener.swift; sourceTree = "<group>"; };
 		FAE0903024F2E2C900184B05 /* Pigeon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pigeon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAE0903324F2E2C900184B05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				FAE0906324F3118100184B05 /* Utils */,
 				FAE0905824F2F33A00184B05 /* Cache */,
 				FAE0905524F2E51800184B05 /* Query.swift */,
+				FA36D10024F3270B009B4D80 /* PaginatedQuery.swift */,
 				FAE0906124F2F48E00184B05 /* QueryConsumer.swift */,
 				FAE0906824F3122700184B05 /* Mutation.swift */,
 			);
@@ -271,6 +274,7 @@
 				FAE0905C24F2F35700184B05 /* InMemoryQueryCache.swift in Sources */,
 				FAE0905E24F2F37500184B05 /* UserDefaultsQueryCache.swift in Sources */,
 				FAE0905624F2E51800184B05 /* Query.swift in Sources */,
+				FA36D10124F3270B009B4D80 /* PaginatedQuery.swift in Sources */,
 				FAE0906524F3118C00184B05 /* QueryCacheListener.swift in Sources */,
 				FAE0903424F2E2C900184B05 /* AppDelegate.swift in Sources */,
 				FA36D0FF24F31497009B4D80 /* QueryInvalidator.swift in Sources */,

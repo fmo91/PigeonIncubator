@@ -26,9 +26,9 @@ struct Album: Codable {
 }
 
 extension QueryKey {
-    static let users: QueryKey = QueryKey(rawValue: "users")
+    static let users: QueryKey = QueryKey(value: "users")
     static func albums(forUser user: User) -> QueryKey {
-        QueryKey(rawValue: "albums_\(user.id)")
+        QueryKey(value: "albums_\(user.id)")
     }
 }
 

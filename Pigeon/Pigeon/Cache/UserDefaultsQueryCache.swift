@@ -16,16 +16,16 @@ final class UserDefaultsQueryCache: QueryCacheType {
         guard let data = try? JSONEncoder().encode(value) else {
             return
         }
-        UserDefaults.standard.set(data, forKey: key.rawValue)
+        UserDefaults.standard.set(data, forKey: key.queryKeyValue)
         UserDefaults.standard.synchronize()
     }
     
     func invalidate(for key: QueryKey) {
-        UserDefaults.standard.removeObject(forKey: key.rawValue)
+        UserDefaults.standard.removeObject(forKey: key.queryKeyValue)
     }
     
     func get<T: Codable>(for key: QueryKey) -> T? {
-        guard let data = UserDefaults.standard.data(forKey: key.rawValue) else {
+        guard let data = UserDefaults.standard.data(forKey: key.queryKeyValue) else {
             return nil
         }
         return try? JSONDecoder().decode(T.self, from: data)

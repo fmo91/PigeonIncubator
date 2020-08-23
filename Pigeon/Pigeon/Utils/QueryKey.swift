@@ -8,15 +8,37 @@
 
 import Foundation
 
-struct QueryKey: Hashable {
-    let rawValue: String
+protocol QueryKeyType {
+    var queryKeyValue: String { get }
 }
 
-extension QueryKey {
+protocol PaginatedQueryKey: QueryKeyType {
+    var next: Self { get }
+}
+
+extension PaginatedQueryKey {
+    var asQueryKey: QueryKey {
+        QueryKey(value: queryKeyValue)
+    }
+}
+
+struct QueryKey: Hashable, QueryKeyType {
+    let queryKeyValue: String
+    
+    init(value: String) {
+        self.queryKeyValue = value
+    }
+    
+    func appending(_ suffix: String) -> QueryKey {
+        return QueryKey(value: "\(queryKeyValue)_\(suffix)")
+    }
+}
+
+extension QueryKeyType {
     var notificationName: Notification.Name {
-        Notification.Name("\(rawValue)_notification")
+        Notification.Name("\(queryKeyValue)_notification")
     }
     var invalidationNotificationName: Notification.Name {
-        Notification.Name("\(rawValue)_notification_invalidation")
+        Notification.Name("\(queryKeyValue)_notification_invalidation")
     }
 }

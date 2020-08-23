@@ -19,46 +19,45 @@ final class PaginatedQuery<Request, PageIdentifier: PaginatedQueryKey, Response:
     
     @Published var state = State.none
     @Published var currentPage: PageIdentifier
+    private let key: QueryKey
     private let cache: QueryCacheType
     private let fetcher: QueryFetcher
     private var lastRequest: Request?
     private var cancellables = Set<AnyCancellable>()
     
     init(
-        key: PageIdentifier,
+        key: QueryKey,
         behavior: FetchingBehavior = .startWhenRequested,
         cache: QueryCacheType = UserDefaultsQueryCache.shared,
         fetcher: @escaping QueryFetcher
     ) {
-        self.currentPage = key
+        self.key = key
+        self.currentPage = PageIdentifier.first
         self.cache = cache
         self.fetcher = fetcher
         
-        start(for: behavior, key: key)
+        start(for: behavior)
         
-        listenQueryCache(for: key.asQueryKey)
+        listenQueryCache(for: key)
             .assign(to: \.state, on: self)
             .store(in: &cancellables)
         
-        listenQueryInvalidation(for: key.asQueryKey)
+        listenQueryInvalidation(for: key)
             .sink { (request: Request) in
-                self.refetch(
-                    request: request,
-                    page: key
-                )
+                self.refetchAll(request: request)
             }
             .store(in: &cancellables)
     }
     
-    private func start(for behavior: FetchingBehavior, key: PageIdentifier) {
+    private func start(for behavior: FetchingBehavior) {
         switch behavior {
         case .startWhenRequested:
-            if let cachedResponse: Response = self.cache.get(for: key.asQueryKey) {
+            if let cachedResponse: Response = self.cache.get(for: self.key.appending(currentPage)) {
                 state = .succeed(cachedResponse)
             }
             break
         case let .startImmediately(request):
-            refetch(request: request, page: key)
+            refetch(request: request, page: currentPage)
         }
     }
     
@@ -69,6 +68,15 @@ final class PaginatedQuery<Request, PageIdentifier: PaginatedQueryKey, Response:
         
         self.currentPage = self.currentPage.next
         refetch(request: lastRequest, page: self.currentPage)
+    }
+    
+    func refetchAll(request: Request) {
+        currentPage = .first
+        refetchCurrent(request: request)
+    }
+    
+    func refetchCurrent(request: Request) {
+        self.refetch(request: request, page: currentPage)
     }
     
     func refetch(request: Request, page: PageIdentifier) {

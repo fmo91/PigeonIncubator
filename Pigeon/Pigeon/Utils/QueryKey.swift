@@ -12,16 +12,6 @@ protocol QueryKeyType {
     var queryKeyValue: String { get }
 }
 
-protocol PaginatedQueryKey: QueryKeyType {
-    var next: Self { get }
-}
-
-extension PaginatedQueryKey {
-    var asQueryKey: QueryKey {
-        QueryKey(value: queryKeyValue)
-    }
-}
-
 struct QueryKey: Hashable, QueryKeyType {
     let queryKeyValue: String
     
@@ -31,6 +21,10 @@ struct QueryKey: Hashable, QueryKeyType {
     
     func appending(_ suffix: String) -> QueryKey {
         return QueryKey(value: "\(queryKeyValue)_\(suffix)")
+    }
+    
+    func appending(_ key: QueryKeyType) -> QueryKey {
+        return appending(key.queryKeyValue)
     }
 }
 

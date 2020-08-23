@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		FA36D0FF24F31497009B4D80 /* QueryInvalidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA36D0FE24F31497009B4D80 /* QueryInvalidator.swift */; };
 		FA36D10124F3270B009B4D80 /* PaginatedQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA36D10024F3270B009B4D80 /* PaginatedQuery.swift */; };
+		FA36D10324F32D80009B4D80 /* PaginatedQueryKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA36D10224F32D80009B4D80 /* PaginatedQueryKey.swift */; };
 		FA8E885B24F312FF0054B253 /* QueryInvalidationListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E885A24F312FF0054B253 /* QueryInvalidationListener.swift */; };
 		FAE0903424F2E2C900184B05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE0903324F2E2C900184B05 /* AppDelegate.swift */; };
 		FAE0903624F2E2C900184B05 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE0903524F2E2C900184B05 /* SceneDelegate.swift */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		FA36D0FE24F31497009B4D80 /* QueryInvalidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryInvalidator.swift; sourceTree = "<group>"; };
 		FA36D10024F3270B009B4D80 /* PaginatedQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginatedQuery.swift; sourceTree = "<group>"; };
+		FA36D10224F32D80009B4D80 /* PaginatedQueryKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginatedQueryKey.swift; sourceTree = "<group>"; };
 		FA8E885A24F312FF0054B253 /* QueryInvalidationListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryInvalidationListener.swift; sourceTree = "<group>"; };
 		FAE0903024F2E2C900184B05 /* Pigeon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pigeon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAE0903324F2E2C900184B05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -161,8 +163,9 @@
 				FAE0906424F3118C00184B05 /* QueryCacheListener.swift */,
 				FA8E885A24F312FF0054B253 /* QueryInvalidationListener.swift */,
 				FA36D0FE24F31497009B4D80 /* QueryInvalidator.swift */,
-				FAE0906624F311A700184B05 /* QueryKey.swift */,
 				FAE0905F24F2F47500184B05 /* QueryState.swift */,
+				FAE0906624F311A700184B05 /* QueryKey.swift */,
+				FA36D10224F32D80009B4D80 /* PaginatedQueryKey.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				FAE0903624F2E2C900184B05 /* SceneDelegate.swift in Sources */,
 				FAE0906024F2F47500184B05 /* QueryState.swift in Sources */,
 				FAE0906924F3122700184B05 /* Mutation.swift in Sources */,
+				FA36D10324F32D80009B4D80 /* PaginatedQueryKey.swift in Sources */,
 				FAE0903824F2E2C900184B05 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

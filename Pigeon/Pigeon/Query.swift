@@ -9,7 +9,7 @@
 import Foundation
 import Combine
 
-final class Query<Request, Response: Codable>: ObservableObject, QueryCacheListener {
+final class Query<Request, Response: Codable>: ObservableObject, QueryCacheListener, QueryInvalidationListener {
     enum FetchingBehavior {
         case startWhenRequested
         case startImmediately(Request)
@@ -43,6 +43,11 @@ final class Query<Request, Response: Codable>: ObservableObject, QueryCacheListe
         }
         listenQueryCache(for: key)
             .assign(to: \.state, on: self)
+            .store(in: &cancellables)
+        listenQueryInvalidation(for: key)
+            .sink { (request: Request) in
+                self.refetch(request: request)
+            }
             .store(in: &cancellables)
     }
     

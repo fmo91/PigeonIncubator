@@ -9,9 +9,7 @@
 import Foundation
 import Combine
 
-
-
-enum QueryState<Response: Codable> {
+enum QueryState<Response> {
     case none
     case loading
     case succeed(Response)

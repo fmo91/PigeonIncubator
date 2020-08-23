@@ -16,4 +16,7 @@ extension QueryKey {
     var notificationName: Notification.Name {
         Notification.Name("\(rawValue)_notification")
     }
+    var invalidationNotificationName: Notification.Name {
+        Notification.Name("\(rawValue)_notification_invalidation")
+    }
 }

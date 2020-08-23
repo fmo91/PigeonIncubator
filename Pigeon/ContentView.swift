@@ -73,8 +73,16 @@ struct UsersList: View {
 
 struct AlbumsList: View {
     @ObservedObject var albums: Query<User, [Album]>
+    @ObservedObject var postAlbum: Mutation<Void, Void> = Mutation {
+        return Just(())
+            .tryMap({})
+            .eraseToAnyPublisher()
+    }
+    
+    private let user: User
     
     init(user: User) {
+        self.user = user
         albums = Query<User, [Album]>(
             key: .albums(forUser: user),
             behavior: .startImmediately(user),
@@ -94,7 +102,16 @@ struct AlbumsList: View {
         case let .succeed(albumItems):
             return AnyView(
                 List(albumItems, id: \.id) { album in
-                    Text(album.title)
+                    HStack {
+                        Text(album.title)
+                        Button(action: {
+                            self.postAlbum.execute(with: ()) { _, invalidate in
+                                invalidate(.albums(forUser: self.user), self.user)
+                            }
+                        }) {
+                            Text("Press Me")
+                        }
+                    }
                 }
                 .navigationBarTitle("Albums")
             )

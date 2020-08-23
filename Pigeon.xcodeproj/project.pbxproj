@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA36D0FF24F31497009B4D80 /* QueryInvalidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA36D0FE24F31497009B4D80 /* QueryInvalidator.swift */; };
+		FA8E885B24F312FF0054B253 /* QueryInvalidationListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E885A24F312FF0054B253 /* QueryInvalidationListener.swift */; };
 		FAE0903424F2E2C900184B05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE0903324F2E2C900184B05 /* AppDelegate.swift */; };
 		FAE0903624F2E2C900184B05 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE0903524F2E2C900184B05 /* SceneDelegate.swift */; };
 		FAE0903824F2E2C900184B05 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE0903724F2E2C900184B05 /* ContentView.swift */; };
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FA36D0FE24F31497009B4D80 /* QueryInvalidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryInvalidator.swift; sourceTree = "<group>"; };
+		FA8E885A24F312FF0054B253 /* QueryInvalidationListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryInvalidationListener.swift; sourceTree = "<group>"; };
 		FAE0903024F2E2C900184B05 /* Pigeon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pigeon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAE0903324F2E2C900184B05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAE0903524F2E2C900184B05 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -152,6 +156,8 @@
 			isa = PBXGroup;
 			children = (
 				FAE0906424F3118C00184B05 /* QueryCacheListener.swift */,
+				FA8E885A24F312FF0054B253 /* QueryInvalidationListener.swift */,
+				FA36D0FE24F31497009B4D80 /* QueryInvalidator.swift */,
 				FAE0906624F311A700184B05 /* QueryKey.swift */,
 				FAE0905F24F2F47500184B05 /* QueryState.swift */,
 			);
@@ -261,11 +267,13 @@
 			files = (
 				FAE0905A24F2F34100184B05 /* QueryCacheType.swift in Sources */,
 				FAE0906224F2F48E00184B05 /* QueryConsumer.swift in Sources */,
+				FA8E885B24F312FF0054B253 /* QueryInvalidationListener.swift in Sources */,
 				FAE0905C24F2F35700184B05 /* InMemoryQueryCache.swift in Sources */,
 				FAE0905E24F2F37500184B05 /* UserDefaultsQueryCache.swift in Sources */,
 				FAE0905624F2E51800184B05 /* Query.swift in Sources */,
 				FAE0906524F3118C00184B05 /* QueryCacheListener.swift in Sources */,
 				FAE0903424F2E2C900184B05 /* AppDelegate.swift in Sources */,
+				FA36D0FF24F31497009B4D80 /* QueryInvalidator.swift in Sources */,
 				FAE0906724F311A700184B05 /* QueryKey.swift in Sources */,
 				FAE0903624F2E2C900184B05 /* SceneDelegate.swift in Sources */,
 				FAE0906024F2F47500184B05 /* QueryState.swift in Sources */,

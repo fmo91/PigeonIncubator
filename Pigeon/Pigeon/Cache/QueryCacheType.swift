@@ -15,6 +15,17 @@ protocol QueryCacheType {
 }
 
 struct QueryCache {
-    static var inMemory: QueryCacheType { InMemoryQueryCache.shared }
-    static var userDefaults: QueryCacheType { UserDefaultsQueryCache.shared }
+    private let wrappedCache: QueryCacheType
+    
+    init(wrappedCache: QueryCacheType) {
+        self.wrappedCache = wrappedCache
+    }
+    
+    private(set) static var `default`: QueryCacheType = inMemory.wrappedCache
+    static func setDefault(_ wrapper: QueryCache) {
+        QueryCache.default = wrapper.wrappedCache
+    }
+    
+    static var inMemory: QueryCache { .init(wrappedCache: InMemoryQueryCache.shared) }
+    static var userDefaults: QueryCache { .init(wrappedCache: UserDefaultsQueryCache.shared) }
 }

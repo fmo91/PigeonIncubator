@@ -36,7 +36,6 @@ struct UsersList: View {
     @ObservedObject var users = Query<Void, [User]>(
         key: .users,
         behavior: .startImmediately(()),
-        cache: QueryCache.inMemory,
         fetcher: {
             URLSession.shared
                 .dataTaskPublisher(for: URL(string: "https://jsonplaceholder.typicode.com/users")!)

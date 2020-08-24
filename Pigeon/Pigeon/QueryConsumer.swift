@@ -16,7 +16,7 @@ final class QueryConsumer<Response: Codable>: ObservableObject, QueryCacheListen
     
     init(
         key: QueryKey,
-        cache: QueryCacheType = UserDefaultsQueryCache.shared
+        cache: QueryCacheType = QueryCache.default
     ) {
         if let cachedResponse: Response = cache.get(for: key) {
             state = .succeed(cachedResponse)

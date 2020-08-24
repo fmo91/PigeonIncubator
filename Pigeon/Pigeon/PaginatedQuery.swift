@@ -28,7 +28,7 @@ final class PaginatedQuery<Request, PageIdentifier: PaginatedQueryKey, Response:
     init(
         key: QueryKey,
         behavior: FetchingBehavior = .startWhenRequested,
-        cache: QueryCacheType = UserDefaultsQueryCache.shared,
+        cache: QueryCacheType = QueryCache.default,
         fetcher: @escaping QueryFetcher
     ) {
         self.key = key

@@ -98,26 +98,19 @@ struct AlbumsList: View {
     }
     
     var body: some View {
-        switch albums.state {
-        case let .succeed(albumItems):
-            return AnyView(
-                List(albumItems, id: \.id) { album in
-                    HStack {
-                        Text(album.title)
-                        Button(action: {
-                            self.postAlbum.execute(with: ()) { _, invalidate in
-                                invalidate(.albums(forUser: self.user), self.user)
-                            }
-                        }) {
-                            Text("Press Me")
-                        }
+        List(albums.state.value ?? [], id: \.id) { album in
+            HStack {
+                Text(album.title)
+                Button(action: {
+                    self.postAlbum.execute(with: ()) { _, invalidate in
+                        invalidate(.albums(forUser: self.user), self.user)
                     }
+                }) {
+                    Text("Press Me")
                 }
-                .navigationBarTitle("Albums")
-            )
-        default:
-            return AnyView(Text("Loading").navigationBarTitle("Albums"))
+            }
         }
+        .navigationBarTitle("Albums")
     }
 }
 

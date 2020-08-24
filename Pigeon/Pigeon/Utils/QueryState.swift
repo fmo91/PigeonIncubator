@@ -14,4 +14,12 @@ enum QueryState<Response> {
     case loading
     case succeed(Response)
     case failed(Error)
+    
+    var value: Response? {
+        if case let .succeed(value) = self {
+            return value
+        } else {
+            return nil
+        }
+    }
 }
